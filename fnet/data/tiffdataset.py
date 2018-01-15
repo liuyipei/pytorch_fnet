@@ -2,6 +2,7 @@ import torch.utils.data
 from fnet.fnetdataset import FnetDataset
 from fnet.data.tifreader import TifReader
 import pandas as pd
+import torch
 
 class TifDataset(FnetDataset):
     """Dataset for Tif files."""
@@ -18,8 +19,8 @@ class TifDataset(FnetDataset):
         tif_signal = TifReader(element['path_signal'])
 	tif_target = TifReader(element['path_target'])
         return (
-            tif_signal.get_image(element['path_signal']),
-            tif_target.get_image(element['path_target'])
+            torch.Tensor(tif_signal.get_image(element['path_signal'])),
+            torch.Tensor(tif_target.get_image(element['path_target']))
         )
     
     def __len__(self):
