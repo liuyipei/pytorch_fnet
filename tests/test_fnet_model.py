@@ -1,5 +1,5 @@
 import fnet
-import fnet.fnet_model
+import pytorch_fnet.fnet.fnet_model
 import numpy as np
 import os
 import pdb

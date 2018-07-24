@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from aicsimage.io import omeTifReader, cziReader
+from pytorch_fnet.aicsimage.io import omeTifReader, cziReader
 
 
 class AICSImage:

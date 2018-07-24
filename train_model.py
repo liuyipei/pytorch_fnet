@@ -1,6 +1,7 @@
 import argparse
-import fnet.data
-import fnet.fnet_model
+import pytorch_fnet.fnet as fnet
+import pytorch_fnet.fnet.data
+import pytorch_fnet.fnet.fnet_model
 import json
 import logging
 import numpy as np
@@ -106,7 +107,7 @@ def main():
         fnetlogger = fnet.FnetLogger(path_losses_csv)
         logger.info('History loaded from: {:s}'.format(path_losses_csv))
     else:
-        fnetlogger = fnet.FnetLogger(columns=['num_iter', 'loss_batch'])
+        fnetlogger = fnet.FnetLogger(columns=['num_iter', 'loss_batch', 'signal_stats', 'target_stats'])
 
     n_remaining_iterations = max(0, (opts.n_iter - model.count_iter))
     dataloader_train = get_dataloader(n_remaining_iterations, opts)
@@ -123,10 +124,22 @@ def main():
     with open(os.path.join(opts.path_run_dir, 'train_options.json'), 'w') as fo:
         json.dump(vars(opts), fo, indent=4, sort_keys=True)
 
+    signal_stats = []
+    target_stats = []
+    # ./scripts/temp_train_model.sh dna 0
     for i, (signal, target) in enumerate(dataloader_train, model.count_iter):
+        signal_np = signal.numpy()
+        target_np = target.numpy()
+        signal_stats.append([np.mean(signal_np), np.var(signal_np)])
+        target_stats.append([np.mean(target_np), np.var(target_np)])
         loss_batch = model.do_train_iter(signal, target)
-        fnetlogger.add({'num_iter': i + 1, 'loss_batch': loss_batch})
+        fnetlogger.add({'num_iter': i + 1, 'loss_batch': loss_batch,
+            'signal_stats': np.mean(np.array(signal_stats), axis=0),
+            'target_stats': np.mean(np.array(target_stats), axis=0)})
         print('num_iter: {:6d} | loss_batch: {:.3f}'.format(i + 1, loss_batch))
+        print('signal_stats', np.mean(np.array(signal_stats), axis=0))
+        print('target_stats', np.mean(np.array(target_stats), axis=0))
+
         dict_iter = dict(
             num_iter = i + 1,
             loss_batch = loss_batch,

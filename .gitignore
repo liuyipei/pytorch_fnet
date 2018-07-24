@@ -7,3 +7,7 @@ data/*/
 data/csvs/*/
 saved_models/
 tmp/
+*.err
+*.out
+*tf_records
+*tf_record

@@ -1,8 +1,8 @@
 import unittest
 import torch.utils.data
 import numpy as np
-import fnet.nn_modules.fnet_nn_2d as nn_module
-from fnet.data import DummyChunkDataset
+import pytorch_fnet.fnet.nn_modules.fnet_nn_2d as nn_module
+from pytorch_fnet.fnet.data import DummyChunkDataset
 import pdb
 
 class Test2D(unittest.TestCase):

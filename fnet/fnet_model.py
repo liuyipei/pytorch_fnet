@@ -28,7 +28,7 @@ class Model(object):
         if self.nn_module is None:
             self.net = None
             return
-        self.net = importlib.import_module('fnet.nn_modules.' + self.nn_module).Net(**nn_kwargs)
+        self.net = importlib.import_module('pytorch_fnet.fnet.nn_modules.' + self.nn_module).Net(**nn_kwargs)
         if self.init_weights:
             self.net.apply(_weights_init)
         if self.gpu_ids[0] >= 0:
@@ -126,7 +126,7 @@ def _weights_init(m):
         m.weight.data.normal_(0.0, 0.02)
     elif classname.find('BatchNorm') != -1:
         m.weight.data.normal_(1.0, 0.02)
-        m.bias.data.fill_(0) 
+        m.bias.data.fill_(0)
 
 def _set_gpu_recursive(var, gpu_id):
     """Moves Tensors nested in dict var to gpu_id.

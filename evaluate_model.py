@@ -5,7 +5,7 @@ mpl.use('Agg')
 
 import matplotlib.pyplot as plt
 
-from fnet.utils.figures import evaluate_model, eval_images, print_stats_all, print_stats_all_v2
+from pytorch_fnet.fnet.utils.figures import evaluate_model, eval_images, print_stats_all, print_stats_all_v2
 
 
 

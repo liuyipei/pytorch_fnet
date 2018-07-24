@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-import fnet.transforms
+import pytorch_fnet.fnet.transforms
 
 class TestTransforms(unittest.TestCase):
     def setUp(self):

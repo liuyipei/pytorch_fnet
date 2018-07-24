@@ -1,5 +1,7 @@
 import argparse
-import fnet.data
+import pytorch_fnet
+import pytorch_fnet.fnet as fnet
+import pytorch_fnet.fnet.data
 import importlib
 import json
 import numpy as np

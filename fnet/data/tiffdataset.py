@@ -1,8 +1,8 @@
 import torch.utils.data
-from fnet.data.fnetdataset import FnetDataset
-from fnet.data.tifreader import TifReader
+from pytorch_fnet.fnet.data.fnetdataset import FnetDataset
+from pytorch_fnet.fnet.data.tifreader import TifReader
 
-import fnet.transforms as transforms
+from .. import transforms as transforms
 
 import pandas as pd
 

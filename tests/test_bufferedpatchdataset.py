@@ -1,5 +1,5 @@
-from fnet.data import CziDataset
-import fnet.transforms
+from pytorch_fnet.fnet.data import CziDataset
+import pytorch_fnet.fnet.transforms
 import os
 import pandas as pd
 import pdb

@@ -1,1 +1,1 @@
-from fnet.utils.utils import *
+from pytorch_fnet.fnet.utils.utils import *

@@ -2,10 +2,10 @@ import unittest
 
 import torch
 
-from fnet.data.czidataset import CziDataset
-from fnet.data.tiffdataset import TiffDataset
+from pytorch_fnet.fnet.data.czidataset import CziDataset
+from pytorch_fnet.fnet.data.tiffdataset import TiffDataset
 
-import fnet.transforms as transforms
+import pytorch_fnet.fnet.transforms as transforms
 
 import pandas as pd
 import numpy as np

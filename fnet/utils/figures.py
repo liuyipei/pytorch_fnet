@@ -1,7 +1,7 @@
 import argparse
-import fnet.data
-import fnet.fnet_model
-from fnet.utils import delta2rgb, get_stats
+import pytorch_fnet.fnet.data
+import pytorch_fnet.fnet.fnet_model
+from pytorch_fnet.fnet.utils import delta2rgb, get_stats
 
 import json
 import logging

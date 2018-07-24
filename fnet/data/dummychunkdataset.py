@@ -1,4 +1,4 @@
-from fnet.data.fnetdataset import FnetDataset
+from pytorch_fnet.fnet.data.fnetdataset import FnetDataset
 import torch
 import numpy as np
 

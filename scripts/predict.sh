@@ -15,4 +15,3 @@ do
 	   --path_save_dir results/3d/${DATASET}/${TEST_OR_TRAIN} \
 	   --gpu_ids ${GPU_IDS} 
 done
-

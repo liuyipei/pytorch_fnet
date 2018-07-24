@@ -1,9 +1,10 @@
-from fnet.data.fnetdataset import FnetDataset
+from pytorch_fnet.fnet.data.fnetdataset import FnetDataset
 import numpy as np
 import torch
 
 from tqdm import tqdm
-
+from . import dummychunkdataset
+DummyChunkDataset = dummychunkdataset.DummyChunkDataset
 import pdb
 
 
@@ -126,8 +127,7 @@ class BufferedPatchDataset(FnetDataset):
 def _test():
     # dims_chunk = (2,3,4)
     dims_chunk = (4,5)
-    ds_test = ChunkDatasetDummy(
-        None,
+    ds_test = DummyChunkDataset(
         dims_chunk = dims_chunk,
     )
     print('Dataset len', len(ds_test))

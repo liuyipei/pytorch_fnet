@@ -1,12 +1,14 @@
 import torch.utils.data
-from fnet.data.czireader import CziReader
-from fnet.data.fnetdataset import FnetDataset
+from .czireader import CziReader
+from .fnetdataset import FnetDataset
 import pandas as pd
 import numpy as np
 
 import pdb
+import pytorch_fnet
+import pytorch_fnet.fnet
+from .. import transforms
 
-import fnet.transforms as transforms
 
 class CziDataset(FnetDataset):
     """Dataset for CZI files."""

@@ -1,4 +1,4 @@
-import aicsimage.io as io
+import pytorch_fnet.aicsimage.io as io
 import os
 import pdb
 
